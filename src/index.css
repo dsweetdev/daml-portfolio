@@ -1,0 +1,47 @@
+/* index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans text-gray-200 bg-[#0F1117];
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass panel utility */
+.glass-card {
+  @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-lg p-6 shadow-md;
+}
+
+/* Smooth hover link underline for dark mode */
+.link-underline {
+  @apply relative text-blue-400 hover:text-blue-300 transition-colors;
+}
+
+.link-underline::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Hover scale effect */
+.card-hover {
+  @apply transition-transform transform hover:-translate-y-1 hover:shadow-xl;
+}
+
+.glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/30 rounded-lg shadow-md p-6;
+}
+
+.section-card {
+    @apply backdrop-blur-sm bg-white/60 p-6;
+}
+  
+  
