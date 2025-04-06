@@ -14,30 +14,77 @@ import {
 
 export default function App() {
   const [showCert, setShowCert] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex h-screen font-sans bg-[#E0E2E4] text-[#090F23]">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white border-r p-6">
-        <img className="mb-4 ml-6" src="./logo.png"/>
-        <nav className="flex flex-col gap-2 text-blue-600">
-          <a className="text-blue-600 hover:underline" href="#about">About the Developer</a>
-          <a className="text-blue-600 hover:underline" href="#overview">The Project</a>
-          <a className="text-blue-600 hover:underline" href="#implementation">Smart Contracts</a>
-          <a className="text-blue-600 hover:underline" href="#daml">About DAML</a>
-          <a className="text-blue-600 hover:underline" href="#security">Security & Governance</a>
-          <a className="text-blue-600 hover:underline" href="#source-code">Source Code</a>
-        </nav>
+    <div className="flex h-screen font-sans bg-[#E0E2E4] text-[#090F23] relative md:flex-row flex-col">
+      {/* Mobile Hamburger Button */}
+      <button
+        onClick={() => setMobileMenuOpen(true)}
+        className="md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded shadow-md"
+        aria-label="Open menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-gray-800"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-        <footer className="text-xs text-gray-400 mt-6 pt-4 border-t border-gray-200">
+      {/* Sidebar */}
+      <aside
+        role="navigation"
+        aria-label="Sidebar navigation"
+        className={`fixed top-0 left-0 z-40 h-full w-64 bg-white border-r p-6 transform transition-transform duration-200 ease-in-out
+        ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 md:block`}>
+
+        <div>
+          {/* Close button (mobile only) */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="md:hidden absolute top-4 right-4 text-gray-700 hover:text-black"
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Logo */}
+          <img className="mb-6 ml-4" src="./logo.png" alt="Logo" />
+
+          {/* Navigation */}
+          <nav className="flex flex-col gap-3 text-blue-600">
+            <a className="hover:underline" href="#about">About the Developer</a>
+            <a className="hover:underline" href="#overview">The Project</a>
+            <a className="hover:underline" href="#implementation">Smart Contracts</a>
+            <a className="hover:underline" href="#daml">About DAML</a>
+            <a className="hover:underline" href="#security">Security & Governance</a>
+            <a className="hover:underline" href="#source-code">Source Code</a>
+          </nav>
+        </div>
+
+        {/* Footer */}
+        <footer className="text-xs text-gray-400 pt-6 border-t border-gray-200">
           © {new Date().getFullYear()} Dustin Sweet
           <br />
           Portfolio v1.0
-        </footer>     
+        </footer>
       </aside>
 
+
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-6 py-10 space-y-6">
+      <main className="flex-1 overflow-y-auto px-6 py-10 space-y-6 md:ml-0">
         <div className="max-w-6xl mx-auto w-full">
 
           <div className="w-full max-w-screen-xl mx-auto space-y-10"> 
