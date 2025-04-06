@@ -59,7 +59,7 @@ export default function App() {
                   {/* LEFT COLUMN: Image + Stacked Links */}
                   <div className="flex flex-col items-center gap-4">
                     <img
-                      src="/dev-profile.jpg"
+                      src={`${import.meta.env.BASE_URL}dev-profile.jpg`}
                       alt="Dustin Sweet"
                       className="w-40 h-40 object-cover rounded-full shadow"
                     />
@@ -113,7 +113,7 @@ export default function App() {
                     ×
                   </button>
                   <img
-                    src="/cert-daml.png"
+                    src={`${import.meta.env.BASE_URL}cert-daml.png`}
                     alt="DAML Associate Certification"
                     className="w-full h-auto rounded"
                   />
@@ -184,7 +184,7 @@ export default function App() {
                   </p>
                   <div className="flex justify-center">
                     <img
-                      src="/vehicleTrader.png"
+                      src={`${import.meta.env.BASE_URL}vehicleTrader.png`}
                       alt="Vehicle Transfer Smart Contract Flow"
                       className="w-full max-w-5xl"
                     />
@@ -282,7 +282,7 @@ export default function App() {
               <section id="daml" className="space-y-4 scroll-mt-12">
               <div className="flex items-center space-x-2 border-b border-gray-300 pb-2">
                 <h2 className="text-2xl font-bold">About DAML</h2>
-                <img src="./daml-logo.png" alt="DAML logo" className="h-6 w-6" />
+                <img src={`${import.meta.env.BASE_URL}daml-logo.png`} alt="DAML logo" className="h-6 w-6" />
               </div>
 
                 <p>
